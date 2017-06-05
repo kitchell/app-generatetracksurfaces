@@ -49,8 +49,14 @@ def niftiMask2Surface(img_path, surf_name, smooth_iter=10):
     # close_holes.SetHoleSize(10)
     # close_holes.Update()
 
-    writer = vtk.vtkPLYWriter()
+    #writer = vtk.vtkPLYWriter()
+    #writer.SetInputConnection(connectivityFilter.GetOutputPort())
+    #writer.SetFileTypeToASCII()
+    #writer.SetFileName(surf_name)
+    #writer.Write()
+
+    writer = vtk.vtkPolyDataWriter()
+    #writer = vtk.vtkDataSetWriter()
     writer.SetInputConnection(connectivityFilter.GetOutputPort())
-    writer.SetFileTypeToASCII()
     writer.SetFileName(surf_name)
     writer.Write()
