@@ -18,7 +18,7 @@ echo "starting main"
 nohup time python $SCA_SERVICE_DIR/main.py > stdout.log 2> stderr.log
 
 #check for output files
-if [ -s Right_Uncinate_surf.ply ];
+if [ -s Right_Uncinate_surf.vtk ];
 then
 	echo 0 > finished
 else
