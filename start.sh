@@ -18,7 +18,10 @@ echo "starting main"
 nohup time python $SCA_SERVICE_DIR/main.py > stdout.log 2> stderr.log
 
 #check for output files
-if [ -s Right_Uncinate_surf.vtk ];
+#if [ -s Right_Uncinate_surf.vtk ];
+
+count=$(ls *.vtk | wc -l)
+if [ $count -eq 20 ] 
 then
 	echo 0 > finished
 else
