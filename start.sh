@@ -1,9 +1,7 @@
 #!/bin/bash
 
 #mainly to debug locally
-if [ -z $SCA_WORKFLOW_DIR ]; then export SCA_WORKFLOW_DIR=`pwd`; fi
-if [ -z $SCA_TASK_DIR ]; then export SCA_TASK_DIR=`pwd`; fi
-if [ -z $SCA_SERVICE_DIR ]; then export SCA_SERVICE_DIR=`pwd`; fi
+if [ -z $SERVICE_DIR ]; then export SERVICE_DIR=`pwd`; fi
 
 #clean up previous job (just in case)
 rm -f finished
@@ -15,7 +13,7 @@ echo "starting main"
 
 (
 
-nohup time python $SCA_SERVICE_DIR/main.py > stdout.log 2> stderr.log
+nohup time python $SERVICE_DIR/main.py > stdout.log 2> stderr.log
 
 #check for output files
 #if [ -s Right_Uncinate_surf.vtk ];
