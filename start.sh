@@ -8,6 +8,8 @@ rm -f finished
 module unload python/2.7.3
 module load anaconda2
 
+# remove surface directory
+rm -rf surfaces
 
 echo "starting main"
 
