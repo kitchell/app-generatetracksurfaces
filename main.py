@@ -11,6 +11,7 @@ pwd = os.getcwd()
 os.mkdir(pwd + "/surfaces")
 os.chdir(pwd + "/surfaces")
 
+print('looking for' config["maskdir"] + "/*Vol.nii.gz")
 
 for file in glob.glob(config["maskdir"] + "/*Vol.nii.gz"):
     split_name = os.path.basename(file).split('_')
