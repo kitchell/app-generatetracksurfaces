@@ -13,6 +13,7 @@ os.mkdir(pwd + "/surfaces")
 #os.chdir(pwd + "/surfaces")
 
 numfiles = len(fnmatch.filter(os.listdir(config["maskdir"]), '*.nii.gz'))
+print numfiles
 os.environ["NUMFILES"] = str(numfiles)
 
 print('looking for ' + config["maskdir"] + "/*Vol.nii.gz")
