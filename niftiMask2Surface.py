@@ -18,7 +18,7 @@ niftiMask2Surface(img_path, "arc_smooth.vtk", 15)
 import vtk
 
 
-def niftiMask2Surface(img_path, surf_name, smooth_iter=10):
+def niftiMask2Surface(img_path, surf_name, smooth_iter=10, filetype="vtk"):
     # import the binary nifti image
     reader = vtk.vtkNIFTIImageReader()
     reader.SetFileName(img_path)
@@ -48,15 +48,23 @@ def niftiMask2Surface(img_path, surf_name, smooth_iter=10):
     # close_holes.SetInputConnection(smoother.GetOutputPort())
     # close_holes.SetHoleSize(10)
     # close_holes.Update()
-
-    #writer = vtk.vtkPLYWriter()
-    #writer.SetInputConnection(connectivityFilter.GetOutputPort())
-    #writer.SetFileTypeToASCII()
-    #writer.SetFileName(surf_name)
-    #writer.Write()
-
-    writer = vtk.vtkPolyDataWriter()
-    #writer = vtk.vtkDataSetWriter()
-    writer.SetInputConnection(connectivityFilter.GetOutputPort())
-    writer.SetFileName(surf_name)
-    writer.Write()
+    if filetype == "stl":
+      writer = vtk.vtkSTLWriter()
+      writer.SetInputConnection(connectivityFilter.GetOutputPort())
+      writer.SetFileTypeToASCII()
+      writer.SetFileName(surf_name)
+      writer.Write()
+      
+    if filetype == "ply":
+      writer = vtk.vtkPLYWriter()
+      writer.SetInputConnection(connectivityFilter.GetOutputPort())
+      writer.SetFileTypeToASCII()
+      writer.SetFileName(surf_name)
+      writer.Write()
+      
+    if filetype == "vtk":
+      writer = vtk.vtkPolyDataWriter()
+      #writer = vtk.vtkDataSetWriter()
+      writer.SetInputConnection(connectivityFilter.GetOutputPort())
+      writer.SetFileName(surf_name)
+      writer.Write()
