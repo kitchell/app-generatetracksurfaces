@@ -1,6 +1,7 @@
 
 import glob
 import os
+import fnmatch
 import json
 from niftiMask2Surface import niftiMask2Surface
 
@@ -10,6 +11,9 @@ with open('config.json') as config_json:
 pwd = os.getcwd()
 os.mkdir(pwd + "/surfaces")
 #os.chdir(pwd + "/surfaces")
+
+numfiles = len(fnmatch.filter(os.listdir(config["maskdir"]), '*.nii.gz'))
+os.environ["NUMFILES"] = str(numfiles)
 
 print('looking for ' + config["maskdir"] + "/*Vol.nii.gz")
 filetype = config["filetype"]
