@@ -33,7 +33,7 @@ nohup time python $SERVICE_DIR/main.py > stdout.log 2> stderr.log
 #check for output files
 #if [ -s Right_Uncinate_surf.vtk ];
 
-count=$(ls surfaces/*.vtk | wc -l)
+count=$(ls surfaces/* | wc -l)
 if [ $count -eq 20 ] 
 then
 	echo 0 > finished
