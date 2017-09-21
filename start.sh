@@ -24,6 +24,9 @@ fi
 # remove surface directory
 rm -rf surfaces
 
+echo "counting files"
+NUMFILES=`$SERVICE_DIR/numfiles.py`
+
 echo "starting main"
 
 (
