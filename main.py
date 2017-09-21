@@ -1,7 +1,6 @@
 
 import glob
 import os
-import fnmatch
 import json
 from niftiMask2Surface import niftiMask2Surface
 
@@ -12,11 +11,6 @@ pwd = os.getcwd()
 os.mkdir(pwd + "/surfaces")
 #os.chdir(pwd + "/surfaces")
 
-numfiles = len(fnmatch.filter(os.listdir(config["maskdir"]), '*.nii.gz'))
-print numfiles
-os.environ["NUMFILES"] = str(numfiles)
-#os.putenv("NUMFILES", str(numfiles))
-os.execve(argv[0], argv, environ)
 
 print('looking for ' + config["maskdir"] + "/*Vol.nii.gz")
 filetype = config["filetype"]
