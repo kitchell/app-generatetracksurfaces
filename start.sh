@@ -34,8 +34,8 @@ nohup time python $SERVICE_DIR/main.py > stdout.log 2> stderr.log
 #if [ -s Right_Uncinate_surf.vtk ];
 
 count=$(ls surfaces/* | wc -l)
-echo $NUMFILES
-if [ "$count" == $NUMFILES ] 
+echo "$NUMFILES"
+if [ "$count" == "$NUMFILES" ] 
 then
 	echo 0 > finished
 else
