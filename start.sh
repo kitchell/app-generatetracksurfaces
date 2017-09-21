@@ -26,7 +26,7 @@ rm -rf surfaces
 
 echo "counting files"
 NUMFILES=`$SERVICE_DIR/numfiles.py`
-
+echo "there are $NUMFILES files" 
 echo "starting main"
 
 (
@@ -37,7 +37,7 @@ nohup time python $SERVICE_DIR/main.py > stdout.log 2> stderr.log
 #if [ -s Right_Uncinate_surf.vtk ];
 
 count=$(ls surfaces/* | wc -l)
-echo "$NUMFILES"
+
 if [ "$count" == "$NUMFILES" ] 
 then
 	echo 0 > finished
