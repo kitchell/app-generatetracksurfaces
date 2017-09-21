@@ -14,7 +14,8 @@ os.mkdir(pwd + "/surfaces")
 
 numfiles = len(fnmatch.filter(os.listdir(config["maskdir"]), '*.nii.gz'))
 print numfiles
-os.environ["NUMFILES"] = str(numfiles)
+#os.environ["NUMFILES"] = str(numfiles)
+os.putenv("NUMFILES", str(numfiles))
 
 print('looking for ' + config["maskdir"] + "/*Vol.nii.gz")
 filetype = config["filetype"]
