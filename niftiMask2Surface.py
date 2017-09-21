@@ -6,13 +6,14 @@ This is a function that takes in a binary nifti image and outputs a
 .vtk surface mesh.
 inputs:
 img_path: path string to nifti image
-smooth_iter: number of smoothing iterations, default = 10
 surf_name: string of surface file name ending in .vtk
+smooth_iter: number of smoothing iterations, default = 10
+filetype: output file type, either vtk, ply or stl
 Example:
 import os
 img_path = os.path.join('/Users/lindseykitchell/Box Sync/fiberVolumes/',
                         'HCP_105115_STREAM_Lmax8_conn6_boolVol_R_Arc.nii.gz')
-niftiMask2Surface(img_path, "arc_smooth.vtk", 15)
+niftiMask2Surface(img_path, "arc_smooth.vtk", 15, "vtk")
 """
 
 import vtk
