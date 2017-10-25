@@ -13,6 +13,8 @@ os.mkdir(pwd + "/surfaces")
 #os.chdir(pwd + "/surfaces")
 try:
     shutil.copyfile(config["maskdir"]+"/color.json", pwd + "/surfaces/color.json")
+except:
+    print('no color.json file')
 
 print('looking for ' + config["maskdir"] + "/*Vol.nii.gz")
 filetype = config["filetype"]
