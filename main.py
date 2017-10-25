@@ -11,7 +11,8 @@ with open('config.json') as config_json:
 pwd = os.getcwd()
 os.mkdir(pwd + "/surfaces")
 #os.chdir(pwd + "/surfaces")
-shutil.copyfile(config["maskdir"]+"/color.json", pwd + "/surfaces/color.json")
+try:
+    shutil.copyfile(config["maskdir"]+"/color.json", pwd + "/surfaces/color.json")
 
 print('looking for ' + config["maskdir"] + "/*Vol.nii.gz")
 filetype = config["filetype"]

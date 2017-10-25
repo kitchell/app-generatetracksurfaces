@@ -44,6 +44,9 @@ def niftiMask2Surface(img_path, surf_name, smooth_iter=10, filetype="vtk"):
     connectivityFilter.SetExtractionModeToLargestRegion()
     connectivityFilter.Update()
 
+    cleaned = vtk.vtkCleanPolyData()
+    cleaned.SetInputConnection(connectivityFilter.GetOutputPort())
+    cleaned.Update()
     # doesn't work, but may need in future
     # close_holes = vtk.vtkFillHolesFilter()
     # close_holes.SetInputConnection(smoother.GetOutputPort())
@@ -51,14 +54,14 @@ def niftiMask2Surface(img_path, surf_name, smooth_iter=10, filetype="vtk"):
     # close_holes.Update()
     if filetype == "stl":
       writer = vtk.vtkSTLWriter()
-      writer.SetInputConnection(connectivityFilter.GetOutputPort())
+      writer.SetInputConnection(cleaned.GetOutputPort())
       writer.SetFileTypeToASCII()
       writer.SetFileName(surf_name)
       writer.Write()
       
     if filetype == "ply":
       writer = vtk.vtkPLYWriter()
-      writer.SetInputConnection(connectivityFilter.GetOutputPort())
+      writer.SetInputConnection(cleaned.GetOutputPort())
       writer.SetFileTypeToASCII()
       writer.SetFileName(surf_name)
       writer.Write()
@@ -66,6 +69,6 @@ def niftiMask2Surface(img_path, surf_name, smooth_iter=10, filetype="vtk"):
     if filetype == "vtk":
       writer = vtk.vtkPolyDataWriter()
       #writer = vtk.vtkDataSetWriter()
-      writer.SetInputConnection(connectivityFilter.GetOutputPort())
+      writer.SetInputConnection(cleaned.GetOutputPort())
       writer.SetFileName(surf_name)
       writer.Write()
