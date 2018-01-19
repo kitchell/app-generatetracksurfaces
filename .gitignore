@@ -1,4 +1,5 @@
 config.json
+*.swp
 config.json.copy
 products.json
 dwi*
