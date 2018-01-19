@@ -6,6 +6,6 @@ RUN apt-get update
 RUN apt-get install -y python2.7 python-vtk
 
 
-RUN ldconfig
+RUN ldconfig && mkdir -p /N/u /N/home /N/dc2 /N/soft
 
 
