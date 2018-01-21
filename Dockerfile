@@ -1,11 +1,2 @@
-FROM ubuntu:16.04
-
-MAINTAINER Lindsey Kitchell <kitchell@indiana.edu>
-
-RUN apt-get update 
-RUN apt-get install -y python2.7 python-vtk
-
-
-RUN ldconfig && mkdir -p /N/u /N/home /N/dc2 /N/soft
-
-
+FROM lukin0110/docker-vtk-python
+RUN ldconfig && mkdir -p /N/home /N/u /N/dc2 /N/soft
