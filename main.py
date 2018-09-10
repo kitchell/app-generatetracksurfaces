@@ -17,9 +17,9 @@ try:
 except:
     print('no color.json file')
 
-print('looking for ' + config["maskdir"] + "/*Vol.nii.gz")
+print('looking for ' + config["maskdir"] + "/*.nii.gz")
 filetype = config["filetype"]
-for file in glob.glob(config["maskdir"] + "/*Vol.nii.gz"):
+for file in glob.glob(config["maskdir"] + "/*.nii.gz"):
     print(file)
     split_name = os.path.basename(file).split('_')
     split_name[-1] = 'surf.' + filetype
