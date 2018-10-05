@@ -4,8 +4,6 @@ import os
 import fnmatch
 import json
 
-
-
 with open('config.json') as config_json:
     config = json.load(config_json)
 
