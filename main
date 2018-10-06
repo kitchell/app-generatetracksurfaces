@@ -1,44 +1,19 @@
 #!/bin/bash
 
-
 #clean up previous job (just in case)
 rm -f finished
-
-
-#if [ $ENV == "IUHPC" ]; then
-#	module unload python
-#	if [ $HPC == "KARST" ]; then
-#		module load anaconda2
-#	fi
-#	if [ $HPC == "CARBONATE" ]; then
-#		module load anaconda/python2.7/4.3.1
-#	fi
-	
-#fi
-	
-	#module unload python/2.7.3
-
-module load singularity 2> /dev/null
-
 
 # remove surface directory
 rm -rf surfaces
 
 echo "counting files"
-NUMFILES=`numfiles.py`
+NUMFILES=`python numfiles.py`
 echo "there are $NUMFILES files" 
 echo "starting main"
 
-#singularity exec -e docker://lukin0110/docker-vtk-python ./main.py
 singularity exec -e docker://brainlife/pythonvtk ./main.py
 
-#nohup time python main.py > stdout.log 2> stderr.log
-
-#check for output files
-#if [ -s Right_Uncinate_surf.vtk ];
-
 count=$(ls surfaces/* | wc -l)
-
 if [ "$count" == "$NUMFILES" ] 
 then
 	echo 0 > finished

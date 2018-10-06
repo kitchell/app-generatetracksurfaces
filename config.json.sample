@@ -1,0 +1,4 @@
+{
+    "maskdir": "../app-tractseg/tractseg_output/bundle_segmentations",
+    "filetype": "vtk"
+}
