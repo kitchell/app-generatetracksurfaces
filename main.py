@@ -19,6 +19,7 @@ except:
 
 print('looking for ' + config["maskdir"] + "/*.nii.gz")
 filetype = config["filetype"]
+smooth_iter = config["smooth_iter"]
 for file in glob.glob(config["maskdir"] + "/*.nii.gz"):
     print(file)
     #split_name = os.path.basename(file).split('_')
@@ -28,4 +29,4 @@ for file in glob.glob(config["maskdir"] + "/*.nii.gz"):
     split_name = os.path.basename(file).split('.nii.gz')
     surfname = split_name[0]+"."+filetype
     print(surfname)
-    niftiMask2Surface(file, 'surfaces/'+surfname, 10, filetype)
+    niftiMask2Surface(file, 'surfaces/'+surfname, smooth_iter, filetype)
