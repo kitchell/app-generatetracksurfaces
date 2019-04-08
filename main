@@ -11,7 +11,7 @@ NUMFILES=`python numfiles.py`
 echo "there are $NUMFILES files" 
 echo "starting main"
 
-singularity exec -e docker://brainlife/pythonvtk ./main.py
+singularity exec -e docker://brainlife/pythonvtk:1.1 ./main.py
 
 count=$(ls surfaces/* | wc -l)
 if [ "$count" == "$NUMFILES" ] 
