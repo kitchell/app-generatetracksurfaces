@@ -6,14 +6,14 @@
 This service converts binary voxel images (.nii.gz format) into 3D surface meshes. The output files can be in either .stl, .ply., or .vtk file format. Choose .vtk if you plan to use the output with other brainlife.io apps.  
 
 ### Author
-- Lindsey Kitchell (kitchell@indiana.edu)
+- Lindsey Kitchell 
 
 ### Funding 
 [![NSF-BCS-1734853](https://img.shields.io/badge/NSF_BCS-1734853-blue.svg)](https://nsf.gov/awardsearch/showAward?AWD_ID=1734853)
 [![NSF-BCS-1636893](https://img.shields.io/badge/NSF_BCS-1636893-blue.svg)](https://nsf.gov/awardsearch/showAward?AWD_ID=1636893)
 
 ### References 
-
+Kitchell, Lindsey. Shape Analysis of Human White Matter Tracts: An Examination of Normal Morphological Variability and the Association Between Morphology, Brain Size, and Behavior. Indiana University. 2020
 
 ## Running the App 
 
